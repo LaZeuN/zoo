@@ -1,0 +1,4 @@
+# Project exclude paths
+/zoo-core/target/
+/zoo-desktop/target/
+/zoo-webapp/target/

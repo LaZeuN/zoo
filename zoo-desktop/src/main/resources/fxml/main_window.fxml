@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.zoo.controller.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onExit" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onAddNewSupporter" text="Add Supporter" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAddNewAnimal" text="Add Animal" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="775.0" prefWidth="859.0" spacing="6.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="refreshAllTables" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onRefreshAllTables" text="Refresh all tables" />
+            <Label text="List of supporters">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="supporterTable" prefHeight="200.0" prefWidth="785.0">
+              <columns>
+                <TableColumn fx:id="supporterNameColumn" prefWidth="329.0" text="Name" />
+                <TableColumn fx:id="supporterEmailColumn" prefWidth="344.0" text="Email" />
+                  <TableColumn fx:id="supporterActionsColumn" prefWidth="200.0" text="Actions" />
+              </columns>
+            </TableView>
+            <Label text="List of animals">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="animalsTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="animalNameColumn" prefWidth="121.0" text="Name" />
+                <TableColumn fx:id="animalSpeciesColumn" prefWidth="131.0" text="Species" />
+                  <TableColumn fx:id="animalIntroductionColumn" prefWidth="244.0" text="Introduction" />
+                  <TableColumn fx:id="animalYearOfBirthColumn" prefWidth="170.0" text="Year of birth" />
+                  <TableColumn fx:id="animalActionsColumn" prefWidth="200.0" text="Actions" />
+              </columns>
+            </TableView>
+            <Label text="List of adoption">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TableView fx:id="adoptionsTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="supporterColumn" prefWidth="152.0" text="Supporter" />
+                  <TableColumn fx:id="adoptionDateColumn" prefWidth="134.0" text="Adoption date" />
+                  <TableColumn fx:id="supportedColumn" prefWidth="100.0" text="Supported" />
+                  <TableColumn fx:id="typeOfSupportColumn" prefWidth="146.0" text="Type of support" />
+                  <TableColumn fx:id="amountOfSupportColumn" prefWidth="162.0" text="Amount of support" />
+                  <TableColumn fx:id="frequencyOfSupportColumn" prefWidth="169.0" text="Frequency of support" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="775.0" prefWidth="136.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Label text="Supporter filter">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Search by Name" />
+                  <TextField fx:id="supporterNameSearch" onKeyReleased="#onSupporterSearch" />
+                  <Label text="Search by Email" />
+                  <TextField fx:id="supporterEmailSearch" onKeyReleased="#onSupporterSearch" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Label text="Animal filter">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Search by Name" />
+                  <TextField fx:id="animalNameSearch" onKeyReleased="#onAnimalSearch" />
+                  <Label text="Search by Species" />
+                  <TextField fx:id="animalSpeciesSearch" onKeyReleased="#onAnimalSearch" />
+                  <CheckBox fx:id="adoptedCheckBox" mnemonicParsing="false" onAction="#onIsAdopted" selected="true" text="Adopted" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Label text="Adoption filter">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Search by Adoptive name" />
+                  <TextField fx:id="supporterNameInAdoptionSearch" onKeyReleased="#onAdoptionsSearch" />
+                  <Label text="Search by Adopted name" />
+                  <TextField fx:id="supportedNameInAdoptionSearch" onKeyReleased="#onAdoptionsSearch" />
+                  <Label text="Year of adoption" />
+                  <TextField fx:id="yearOfAdoptionSearch" onKeyReleased="#onAdoptionsSearch" />
+                  <Label text="Type of support" />
+                  <TextField fx:id="typeOfSupportSearch" onKeyReleased="#onAdoptionsSearch" prefWidth="150.0" />
+               </children>
+            </VBox>
+         </children></VBox>
+   </left>
+</BorderPane>
